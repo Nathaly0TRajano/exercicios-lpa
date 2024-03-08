@@ -136,3 +136,13 @@ Route::get("valor/comissao", function(Request $request){
     return $comissao;
 
 });
+
+Route::get("dias/horas/minutos/segundos", function(Request $request){
+    $dias = $request->input("dias");
+    $horas = ($dias * 24) /1;
+    $minutos = ($horas * 60) /1; 
+    $segundo = ($minutos * 60) / 1;
+
+    return $dias . " em horas " . $horas . ", em minutos " . $minutos . ", em segundos " . $segundo;
+
+});
