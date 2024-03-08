@@ -122,3 +122,9 @@ Route::get("salario/desconto", function(Request $request){
 
     return "O salario original é de" . $salario . ", com o aumento de " . $aumento . "%" . ", é igual a " . $resultado . ".";
 });
+
+Route::get("pontos/recompensa", function(Request $request){
+    $compra  = $request->input("valorDaCompra");
+    $contaUm =  ($compra * 1) / 10;
+    return $contaUm;
+});
