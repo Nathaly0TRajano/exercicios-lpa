@@ -18,3 +18,14 @@ Route::get("cadastro/dados", function(Request $request){
     
 
 });
+
+Route::get("cadastro/completo", function(Request $request){
+
+    $nome = $request->input("Nome");
+    $nasceu= $request->input("anoDeNascimento");
+    $cidade = $request->input("CidadeNatal");
+
+    return "Meu nome é " . $nome . ", nasci no ano 
+    de " . $nasceu . ", na cidade de " . $cidade . ".";
+
+});
