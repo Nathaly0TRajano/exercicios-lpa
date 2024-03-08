@@ -113,3 +113,12 @@ Route::get("produto/desconto", function(Request $request){
 
 
 });
+
+Route::get("salario/desconto", function(Request $request){
+    $salario = $request->input("salarioAtual");
+    $aumento = $request->input("porcentagemDeAumento");
+    $conta1 = ($salario * $aumento) / 100;
+    $resultado = ($salario + $conta1);
+
+    return "O salario original é de" . $salario . ", com o aumento de " . $aumento . "%" . ", é igual a " . $resultado . ".";
+});
