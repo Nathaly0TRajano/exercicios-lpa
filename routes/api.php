@@ -78,3 +78,11 @@ Route::get("calcular/media", function(Request $request){
     $Media = ($numero1 + $numero2 + $numero3 + $numero4 + $numero5)/5;
     return $Media;
 });
+
+Route::get("calcular/numeros", function(Request $request){
+    $primeiroNumero = $request->input("primeiroNumero");
+    $segundoNumero = $request->input("segundoNumero");
+
+    $resultado = $segundoNumero / $primeiroNumero;
+    return $resultado;
+});
