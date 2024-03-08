@@ -146,3 +146,11 @@ Route::get("dias/horas/minutos/segundos", function(Request $request){
     return $dias . " em horas " . $horas . ", em minutos " . $minutos . ", em segundos " . $segundo;
 
 });
+
+Route::get("quantidade/compra", function(Request $request){
+    $valor = $request->input("valorDaCompra");
+    $quantidade = $request->input("quantidadeComprada");
+    $resultado = $valor * $quantidade;
+
+    return $resultado;
+});
