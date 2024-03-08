@@ -67,3 +67,14 @@ Route::get("calculadora/multiplicacao", function(Request $request){
     return $resultado;
 
 });
+
+Route::get("calcular/media", function(Request $request){
+    $numero1 = $request->input("numero1");
+    $numero2 = $request->input("numero2");
+    $numero3 = $request->input("numero3");
+    $numero4 = $request->input("numero4");
+    $numero5 = $request->input("numero5");
+
+    $Media = ($numero1 + $numero2 + $numero3 + $numero4 + $numero5)/5;
+    return $Media;
+});
