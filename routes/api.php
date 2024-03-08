@@ -29,3 +29,12 @@ Route::get("cadastro/completo", function(Request $request){
     de " . $nasceu . ", na cidade de " . $cidade . ".";
 
 });
+
+Route::get("calculadora/soma", function(Request $request){
+
+    $primeiroNumero = $request->input("numero1");
+    $segundoNumero = $request->input("numero2");
+    $resultado = $primeiroNumero + $segundoNumero;
+    return $resultado;
+
+});
