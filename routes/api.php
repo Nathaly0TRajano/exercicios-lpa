@@ -86,3 +86,11 @@ Route::get("calcular/numeros", function(Request $request){
     $resultado = $segundoNumero / $primeiroNumero;
     return $resultado;
 });
+
+Route::get("calculo/dobro", function(Request $request){
+
+    $primeiroNumero = $request->input("numero");
+    $resultado = $primeiroNumero * 2;
+    return "O dobro do numero " . $primeiroNumero . " é igual a: " . $resultado;
+
+});
