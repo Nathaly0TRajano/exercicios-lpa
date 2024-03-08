@@ -128,3 +128,11 @@ Route::get("pontos/recompensa", function(Request $request){
     $contaUm =  ($compra * 1) / 10;
     return $contaUm;
 });
+
+Route::get("valor/comissao", function(Request $request){
+
+    $valor = $request->input("valorTotaldasCompras");
+    $comissao = ($valor * 5) / 100;
+    return $comissao;
+
+});
