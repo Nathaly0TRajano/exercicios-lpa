@@ -58,3 +58,12 @@ Route::get("calculadora/divisao", function(Request $request){
     return $resultado;
 
 });
+
+Route::get("calculadora/multiplicacao", function(Request $request){
+    $primeiroNumero = $request->input("numero1");
+    $segundoNumero = $request->input("numero2");
+    $resultado = $primeiroNumero * $segundoNumero;
+
+    return $resultado;
+
+});
