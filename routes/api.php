@@ -103,3 +103,13 @@ Route::get("calculando/area/retangulo", function(Request $request){
     return $resultado;
 
 });
+
+Route::get("produto/desconto", function(Request $request){
+    $precoOriginal = $request->input("precoOriginal");
+    $desconto = $request->input("valorDoDesconto");
+
+    $resultado = ($precoOriginal * $desconto) / 100;
+    return $resultado;
+
+
+});
