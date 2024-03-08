@@ -38,3 +38,14 @@ Route::get("calculadora/soma", function(Request $request){
     return $resultado;
 
 });
+
+Route::get("calculadora/subtracao/tresnumeros", function(Request $request){
+
+    $primeiroNumero = $request->input("numero1");
+    $segundoNumero = $request->input("numero2");
+    $terceiroNumero = $request->input("numero3");
+    $resultado = ($primeiroNumero - $segundoNumero) - $terceiroNumero;
+
+    return $resultado;
+
+});
