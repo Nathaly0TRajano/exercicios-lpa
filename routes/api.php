@@ -94,3 +94,12 @@ Route::get("calculo/dobro", function(Request $request){
     return "O dobro do numero " . $primeiroNumero . " é igual a: " . $resultado;
 
 });
+
+Route::get("calculando/area/retangulo", function(Request $request){
+    $comprimento = $request->input("baseDoRetangulo");
+    $altura = $request->input("alturaDoRetangulo");
+
+    $resultado = $comprimento * $altura;
+    return $resultado;
+
+});
