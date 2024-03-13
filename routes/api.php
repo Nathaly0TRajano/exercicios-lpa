@@ -120,7 +120,7 @@ Route::get("salario/desconto", function(Request $request){
     $conta1 = ($salario * $aumento) / 100;
     $resultado = ($salario + $conta1);
 
-    return "O salario original é de " . $salario . ", com o aumento de " . $aumento . "%" . ", é igual a " . $resultado . ".";
+    return "O salario original é de ~~" . $salario . ", com o aumento de " . $aumento . "%" . ", é igual a " . $resultado . ".";
 });
 
 Route::get("pontos/recompensa", function(Request $request){
