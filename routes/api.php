@@ -5,25 +5,25 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("cadastro/usuario", function(Request $request){
    
-    $Usuario = $request->input("Nome");
+    $Usuario = $request->input("nome");
     return $Usuario;
 });
 
 Route::get("cadastro/dados", function(Request $request){
 
-    $Dado1 = $request->input("nome");
-    $Dado2 = $request->input("Idade");
+    $dado1 = $request->input("nome");
+    $dado2 = $request->input("Idade");
 
-    return 'Meu nome é ' . $Dado1 . ' ,tenho ' . $Dado2 . ' ' . 'anos de idade';
+    return 'Meu nome é ' . $dado1 . ' ,tenho ' . $dado2 . ' ' . 'anos de idade';
     
 
 });
 
 Route::get("cadastro/completo", function(Request $request){
 
-    $nome = $request->input("Nome");
+    $nome = $request->input("nome");
     $nasceu= $request->input("anoDeNascimento");
-    $cidade = $request->input("CidadeNatal");
+    $cidade = $request->input("cidadeNatal");
 
     return "Meu nome é " . $nome . ", nasci no ano 
     de " . $nasceu . ", na cidade de " . $cidade . ".";
@@ -120,7 +120,7 @@ Route::get("salario/desconto", function(Request $request){
     $conta1 = ($salario * $aumento) / 100;
     $resultado = ($salario + $conta1);
 
-    return "O salario original é de" . $salario . ", com o aumento de " . $aumento . "%" . ", é igual a " . $resultado . ".";
+    return "O salario original é de " . $salario . ", com o aumento de " . $aumento . "%" . ", é igual a " . $resultado . ".";
 });
 
 Route::get("pontos/recompensa", function(Request $request){
@@ -154,3 +154,4 @@ Route::get("quantidade/compra", function(Request $request){
 
     return $resultado;
 });
+
