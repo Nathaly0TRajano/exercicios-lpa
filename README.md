@@ -14,11 +14,11 @@ Certifique-se de ter os seguintes requisitos atendidos antes de começar a traba
 ## Como utilizar este repositório
 1. Clone este repositório para seu ambiente de desenvolvimento local utilizando o comando:
 ```
-git clone https://github.com/Nathaly0TRajano/exercicios-lpa.git `
+git clone https://github.com/Nathaly0TRajano/exercicios-lpa.git 
 ```
 2. Acesse o diretório do projeto:
 ```
-cd exercicios 
+cd exercicios-lpa
 ```
 3. Iniciando o projeto 
 ``` 
