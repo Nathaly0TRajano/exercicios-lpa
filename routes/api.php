@@ -167,3 +167,73 @@ Route::get('exemplo/condicao', function(Request $request){
 
     return $retorno;
 });
+
+Route::get('verificar/idade', function(Request $request){
+    $idade = $request->input('idade');
+    if ($idade >= 18) { 
+        return "maior de idade";
+    } else {
+        return "menor de idade";
+    }
+});
+
+Route::get('verificar/impar/par', function(Request $request){
+    $numero = $request->input('numero');
+    if($numero % 2 == 0) {
+        return "par";
+    } else {
+        return "impar";
+    }
+
+});
+
+Route::get("numero/maior/dez", function(Request $request){
+    $numero = $request->input("numero");
+    if ($numero > 10) {
+        return "O número é maior que dez";
+    }
+
+    else {
+        return "O número é menor que dez";
+    }
+});
+
+Route::get("graus", function(Request $request){
+    $graus = $request->input("temperaturaAtual?");
+    if ($graus > 30) {
+        return "Está quente";
+    }
+});
+
+Route::get("numero/positivo/negativo/zero", function (Request $request){
+    $numero = $request->input("numero");
+    if ($numero > 0) {
+        return "O numero informado é positivo";
+    }elseif ($numero < 0){
+        return "O numero informado é negativo";
+
+    } else {
+        return "O numero informado é zero";
+    } 
+
+});
+
+Route::get("maior/numero", function (Request $request){
+    $primeiroNumero = $request->input("primeroNumero");
+    $segundoNumero = $request->input("segundoNumero");
+    if ($primeiroNumero > $segundoNumero) {
+        return $primeiroNumero . " é maior";
+    } else {
+        return $segundoNumero . "é maior";
+    }
+    
+});
+
+Route::get("divisivel/tres", function (Request $request){
+    $numero = $request->input("numero");
+    if ($numero % 3 == 0) {
+        return "o número é divisível por três";
+    } else {
+        return "o número não é divisível por três";
+    }
+}); 
