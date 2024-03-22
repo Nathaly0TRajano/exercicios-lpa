@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Route;
 
 Route::get("cadastro/usuario", function(Request $request){
@@ -237,3 +238,178 @@ Route::get("divisivel/tres", function (Request $request){
         return "o número não é divisível por três";
     }
 }); 
+
+Route::get("lista/exercicio/um", function(Request $request){
+    $numero = $request->input("numero");
+    if ($numero > 10) {
+        return "O número é maior que dez";
+    }
+
+    else {
+        return "O número é menor que dez";
+    }
+});
+
+Route::get("lista/exercicio/dois");
+
+Route::get("lista/exercicio/tres", function(Request $request){
+    $idade = $request->input("insiraIdade");
+    if ($idade >= 18) {
+        return "Você é maior de idade";
+    } else {
+        return "Você é menor de idade";
+    }
+});
+
+Route::get("lista/exercicio/quatro", function(Request $request){
+    $number = $request->input("numero");
+    if ($number % 2 == 0) {
+        return "O número é par";
+    } else {
+        return "O número é ímpar";
+    }
+});
+
+Route::get("lista/exercicio/cinco", function(Request $request){
+    $primeiroNumero = $request->input("primeroNumero");
+    $segundoNumero = $request->input("segundoNumero");
+    if ($primeiroNumero > $segundoNumero) {
+        return $primeiroNumero . " é maior";
+    } else {
+        return $segundoNumero . " é maior";
+    }
+});
+
+Route::get("lista/exercicios/seis", function(Request $request){
+    $numero = $request->input("number");
+    if ($numero % 9 == 0) {
+        return "Este número é divisível por nove";
+    } else {
+        return "Este número não é divisível por nove";
+    }
+});
+
+Route::get("lista/exercicio/sete", function(Request $request){
+    $graus = $request->input("temperaturaAtual");
+    if ($graus > 30) {
+        return "Está quente";
+    } else {
+        return "Não está quente";
+    }
+});
+
+Route::get("lista/exercicios/oito", function(Request $request){
+    $numero = $request->input("insiraNumero");
+    if ($numero % 7 == 0) {
+        return "Este número é multiplo de sete";
+    } else {
+        return "Este número não é multilpo de sete";
+    }
+});
+
+Route::get("lista/exercico/nove", function(Request $request){
+    $idade = $request->input("idade");
+    if ($idade <= 12) {
+        return "Você é uma criança";
+    } else {
+        return "Você não é uma criança";
+    }
+});
+
+Route::get("lista/exercicio/dez", function(Request $request){
+    $numero = $request->input("numero");
+     if ($numero > 0 ) {
+     if ($numero % 2 > 0) {
+        return "é impar e positivo";
+     }} else {
+        return "O número não é positivo nem ímpar";
+     }
+});
+
+Route::get("lista/exercicio/onze", function(Request $request){
+    $numero = $request->input("numero");
+    if ($numero == 100) {
+        return "O número é igual a 100";
+    } else if ($numero > 100) {
+        return "O número é maior que 100";
+    } else {
+        return "O número é menor que 100";
+    }
+});
+Route::get("lista/exercicio/doze", function(Request $request){
+    $numero = $request->input("numero");
+    if ($numero % 6 == 0) {
+        return "Este número é divisível por seis";
+    } else {
+        return "Este número não é divisível por seis";
+    }
+});
+
+
+Route::get("lista/exercicio/treze", function(Request $request){
+    $nomeUsuario = $request->input("nome");
+    if ($nomeUsuario == "Alice") {
+        return "Ola Alice!";
+    } 
+});
+
+Route::get("lista/exercicio/catorze", function(Request $request){
+    $idade = $request->input("idade");
+    $carteira = $request->input("temCarteiraDeMotorista");
+    if ($idade >= 18) {
+    if ($carteira == "Sim") 
+            return "Você pode dirigir";
+    }
+     else {
+        return "Você não pode dirigir";
+    }
+});
+
+Route::get("lista/exercicio/dezesseis", function(Request $request){
+    $primeiroNumero = $request->input("primeiroNumero");
+    $segundoNumero = $request->input("segundoNumero");
+    if ($primeiroNumero < $segundoNumero) {
+        return " O " . $primeiroNumero . " é menor" ;
+    } else if ($segundoNumero < $primeiroNumero ) {
+        return " O " . $segundoNumero . " é menor";
+    }
+    else {
+        return "nenhum é menor";
+    }
+});
+
+Route::get("lista/exercicios/dezessete", function(Request $request){
+$nome = $request->input("nome");
+$idade = $request->input("idade");
+if ($idade >= 18) {
+    return "Você é maior de idade " . ", " . $nome; 
+} else {
+    return "Você é menor de idade" . ", " . $nome;
+}
+});
+
+Route::get("lista/exercicios/dezoito", function(Request $request){
+    $primeiroNumero = $request->input("primeiroNumero");
+    $segundoNumero = $request->input("segundoNumero");
+    
+    if ($primeiroNumero == 0) {
+        return "não é possível efetuar a divisão pois o primeiro número é zero";
+    } else if ($segundoNumero == 0) {
+        return "não é possível efetuar a divisão pois o segundo número é zero";
+    } else {
+        $conta = $primeiroNumero / $segundoNumero;
+        return $conta;
+    }
+});
+
+Route::get("lista/exercicios/dezenove", function(Request $request){
+    $primeiroNumero = $request->input("primeiroNumero");
+    $segundoNumero = $request->input("segundoNumero");
+    $resultado = $primeiroNumero * $segundoNumero;
+    if ($resultado > 100) {
+        return "O resultado é maior que 100";
+    }
+    else {
+        return "O resultado é menor que 100";
+    }
+});
