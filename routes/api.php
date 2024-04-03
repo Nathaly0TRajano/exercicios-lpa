@@ -435,3 +435,112 @@ Route::get("lista/exercicios/vinte", function(Request $request){
         return $contaDiv;
     }
 });
+
+Route::get("novos/exercicios", function(Request $request){
+    $primeiraNota = $request->input("primeiraNota");
+    $segundoNota = $request->input("segundaNota");
+    $terceiraNota = $request->input("terceiraNota");
+    $nota =  ($primeiraNota + $segundoNota + $terceiraNota) / 2;
+    if ($nota >= 7.0) {
+        return "O aluno foi aprovado";
+    } else {
+        return "O aluno não foi aprovado";
+    }
+});
+
+Route::get("novas/exercicios/renda", function (Request $request){
+    $renda = $request->input("suaRenda");
+    if ($renda <= 1900) {
+        return "Não haverá cobrança do imposto de renda";
+    }
+    if ($renda >= 1901) {
+        if($renda <= 2800)
+        {
+        $contaUm = ($renda * 7) /100;;
+        return "Seu imposto de renda será de $contaUm";
+        }
+    }
+    if ($renda >= 2801) {
+        if ($renda <= 3700) {
+            $contaDois = ($renda * 15) /100;
+            return "Seu imposto de renda será de $contaDois";
+        }
+    }
+    if ($renda >= 3701) {
+        $contaTres = ($renda * 22) /100;
+        return "Seu imposto de renda será de $contaTres";
+    }
+    
+});
+
+Route::get("novos/exercicios/ano", function (Request $request){
+    $ano = $request->input("ano");
+    if ($ano % 4 == 0) {
+        return "O ano é bissexto";
+    } else {
+        return "Este ano não é bissexto";
+    } 
+
+});
+
+Route::get("novos/exercicios/desconto", function (Request $request){
+    $valorCompra = $request->input("valorDaCompra");
+    if ($valorCompra >= 1000) {
+        $conta = ($valorCompra * 15) / 100;
+        $resultado = $valorCompra - $conta;
+        return "Parabéns! Você acaba de ganhar uma pormoção com 15% de desconto. O valor da sua conta atual, agora é $resultado";
+    }
+});
+
+Route::get("novos/exercicios/imc", function (Request $request){
+    $altura = $request->input("altura");
+    $peso = $request->input("peso");
+    $imc = ($peso / $altura) / $altura;
+    if ($imc < 18.5) {
+        return "Sua massa corporal se encontra em baixo peso";
+    }
+    if ($imc > 18.5) {
+        if ($imc < 24.9) {
+            return "Sua massa corporal se encontra em eutrofia (peso adequado)";
+        }
+    }
+    if ($imc > 25) {
+        if ($imc <= 29.9 ) {
+            return "Sua massa corporal se encontra em sobrepeso";
+        }
+    }
+    if ($imc > 30) {
+        if ($imc < 34.9) {
+            return "Sua massa corporal se encontra em obesidade grau 1";
+        }
+    }
+    if ($imc > 35) {
+        if ($imc < 39.9) 
+        return "Sua massa corporal se encontra em obesidade grau 2";
+    }
+    if ($imc > 40 ) {
+        return "Sua massa corporal se encontra em obesidade extrema";
+    }
+});
+
+Route::get("novos/exercicios/aumento", function (Request $request){
+    $salario = $request->input("seuSalario");
+    $cargo = $request->input("seuCargo");
+    if ($cargo == 1) {
+    $resultado = ($salario * 5) / 100;
+    return "Haverá um aumento de $resultado em seu salário";
+    }
+    if ($cargo == 2) {
+        $resultadoDois = ($salario * 10) / 100;
+        return "Haverá um aumento de $resultadoDois em seu salário";
+    }
+    if ($cargo == 3) {
+        $resultadoTres = ($salario * 15) / 100;
+        return "Haverá um aumento de $resultadoTres em seu salário";
+    }
+    if ($cargo == 4) {
+        $resultadoQuatro = ($salario * 20) /100;
+        return "Haverá um aumento de $resultadoQuatro em seu salário";
+    }
+
+});
