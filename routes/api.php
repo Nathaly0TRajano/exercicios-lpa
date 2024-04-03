@@ -250,7 +250,16 @@ Route::get("lista/exercicio/um", function(Request $request){
     }
 });
 
-Route::get("lista/exercicio/dois");
+Route::get("lista/exercicio/dois", function (Request $request){
+    $numero = $request->input("numero");
+    if ($numero > 0) {
+        return "Este número é positivo";
+    } else if ($numero == 0) {
+        return "Este número é zero";
+    } else {
+        return "Este número é negativo";
+    }
+});
 
 Route::get("lista/exercicio/tres", function(Request $request){
     $idade = $request->input("insiraIdade");
@@ -349,7 +358,7 @@ Route::get("lista/exercicio/doze", function(Request $request){
 Route::get("lista/exercicio/treze", function(Request $request){
     $nomeUsuario = $request->input("nome");
     if ($nomeUsuario == "Alice") {
-        return "Ola Alice!";
+        return "Olá Alice!";
     } 
 });
 
@@ -411,5 +420,18 @@ Route::get("lista/exercicios/dezenove", function(Request $request){
     }
     else {
         return "O resultado é menor que 100";
+    }
+});
+
+Route::get("lista/exercicios/vinte", function(Request $request){
+    $primeiroNumero = $request->input("primeiroNumero");
+    $segundoNumero = $request->input("segundoNumero");
+    $resultadoConta = $primeiroNumero + $segundoNumero;
+    if ($resultadoConta % 2 == 0) {
+        $conta = $primeiroNumero * $segundoNumero;
+        return $conta;
+    } else {
+        $contaDiv = $primeiroNumero / $segundoNumero;
+        return $contaDiv;
     }
 });
